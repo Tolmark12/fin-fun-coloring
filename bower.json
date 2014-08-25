@@ -1,0 +1,25 @@
+{
+  "name": "fin-fun-coloring=app",
+  "version": "0.0.2",
+  "ignore": [
+    "app",
+    "bower_components",
+    "node_modules",
+    "server",
+    "stage",
+    ".gitignore",
+    "gulpfile.*",
+    "package.json",
+    "**/.*"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "jquery-easing": "*",
+    "handlebars": "~1.3.0"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "jquery-easing": "*",
+    "handlebars": "~1.3.0"
+  }
+}

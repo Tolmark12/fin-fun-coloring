@@ -1,0 +1,1 @@
+mermain = new FinFun()
