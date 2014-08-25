@@ -1,6 +1,6 @@
 {
   "name": "fin-fun-coloring=app",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "ignore": [
     "app",
     "bower_components",
