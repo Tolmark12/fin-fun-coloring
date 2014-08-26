@@ -1,3 +1,3 @@
 web1: 
   type: static
-  httpd_document_root: server
+  httpd_document_root: server/
