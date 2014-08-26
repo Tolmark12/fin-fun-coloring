@@ -251,11 +251,11 @@ MermaidPicker = (function(_super) {
     options = [
       {
         thmb: "crystal-thmb.gif",
-        full: "coloringCrystal.svg",
+        full: "ColoringCrystal.svg",
         "default": true
       }, {
         thmb: "crystal-thmb2.gif",
-        full: "coloringCrystal2.svg"
+        full: "ColoringCrystal2.svg"
       }
     ];
     MermaidPicker.__super__.constructor.call(this, "mermaidPicker", options);

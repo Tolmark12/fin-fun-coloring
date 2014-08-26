@@ -2,8 +2,8 @@ class MermaidPicker extends Picker
 
   constructor: () ->
     options = [
-      {thmb:"crystal-thmb.gif", full:"coloringCrystal.svg", default:true}
-      {thmb:"crystal-thmb2.gif", full:"coloringCrystal2.svg"}
+      {thmb:"crystal-thmb.gif",  full:"ColoringCrystal.svg", default:true}
+      {thmb:"crystal-thmb2.gif", full:"ColoringCrystal2.svg"}
     ]
     super "mermaidPicker", options
 
