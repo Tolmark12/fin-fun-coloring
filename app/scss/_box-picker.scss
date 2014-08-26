@@ -13,7 +13,7 @@
     .options  { opacity:1; pointer-events:auto; }
   }
 
-  &.effectsPicker { top:130px;
-
-  }
+  &.mermaidPicker    { z-index: 10}
+  &.backgroundPicker { top:130px; z-index: 9}
+  &.effectsPicker    { top:240px}
 }

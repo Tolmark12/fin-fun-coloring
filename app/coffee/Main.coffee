@@ -5,5 +5,6 @@ class FinFun
     @colorPicker  = new ColorPicker()
     @bgPicker     = new BackgroundPicker()
     @fxPicker     = new EffectsPicker()
+    @fxPicker     = new MermaidPicker()
 
 FinFun = FinFun

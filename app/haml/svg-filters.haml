@@ -1,5 +1,5 @@
 %defs
   %filter#blur
     %feGaussianBlur{stdDeviation: "4"}
-
-
+    -# %feTurbulence{baseFrequency: ".25,.03", numOctaves: "3", seed: "1"}
+    -# %feComposite{operator: "in", in2: "SourceGraphic"}

@@ -14,9 +14,7 @@ class EffectsPicker extends Picker
   # ---------------------- EVENT HANDLERS
   
   onOptionClick : (e) =>
-    fxClass =  $(e.currentTarget).attr 'data_full'
-    console.log fxClass
-    $(".svg-holder").attr class:"svg-holder #{fxClass}"
+    EffectsPicker.currentFilter = fxClass =  $(e.currentTarget).attr 'data_full'
     thmb    =  $(e.currentTarget).attr 'data_thmb'
     $('.active-box .image', @$node).css "background-image":"url(/images/#{thmb})"
     
