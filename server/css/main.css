@@ -1,0 +1,97 @@
+html {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.color-picker {
+  position: fixed;
+  background: white;
+  padding: 8px 6px 5px 8px;
+  top: 20px;
+  left: 20px;
+  border-radius: 8px; }
+  .color-picker .picked-color {
+    width: 74px;
+    height: 74px;
+    background: pink;
+    margin-bottom: 8px;
+    -webkit-transition: background 0.1s linear 0s;
+    -moz-transition: background 0.1s linear 0s;
+    -o-transition: background 0.1s linear 0s;
+    transition: background 0.1s linear 0s; }
+  .color-picker .swatches {
+    width: 74px;
+    padding-right: 1px; }
+    .color-picker .swatches .swatch-column {
+      display: inline-block;
+      margin-right: 2px; }
+      .color-picker .swatches .swatch-column:last-child {
+        margin-right: 0; }
+      .color-picker .swatches .swatch-column .swatch {
+        width: 23px;
+        height: 23px;
+        background: red;
+        margin-bottom: 2px; }
+        .color-picker .swatches .swatch-column .swatch:hover {
+          opacity: 0.8; }
+
+.box-picker {
+  position: fixed;
+  top: 20px;
+  left: 130px; }
+  .box-picker .active-box, .box-picker .options {
+    background: white;
+    border-radius: 8px;
+    padding: 8px; }
+    .box-picker .active-box .image, .box-picker .options .image {
+      width: 74px;
+      height: 74px;
+      cursor: pointer; }
+  .box-picker .options {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 3px;
+    -webkit-box-shadow: 0px 1px 13px 0px #050505;
+    -moz-box-shadow: 0px 1px 13px 0px #050505;
+    box-shadow: 0px 1px 13px 0px #050505;
+    -webkit-transition: opacity 0.1s linear 0s;
+    -moz-transition: opacity 0.1s linear 0s;
+    -o-transition: opacity 0.1s linear 0s;
+    transition: opacity 0.1s linear 0s; }
+    .box-picker .options .option {
+      width: 74px;
+      height: 74px;
+      background: red;
+      display: inline-block;
+      margin: 5px;
+      cursor: pointer; }
+      .box-picker .options .option:hover {
+        opacity: 0.85; }
+  .box-picker.open .options {
+    opacity: 1;
+    pointer-events: auto; }
+  .box-picker.mermaidPicker {
+    z-index: 10; }
+  .box-picker.backgroundPicker {
+    top: 130px;
+    z-index: 9; }
+  .box-picker.effectsPicker {
+    top: 240px; }
+
+.svg-holder svg * {
+  pointer-events: none; }
+.svg-holder g[id^='C_x3E_'], .svg-holder g[id^='C_x3E_'] * {
+  pointer-events: all;
+  -webkit-transition: fill 0.1s linear 0s;
+  -moz-transition: fill 0.1s linear 0s;
+  -o-transition: fill 0.1s linear 0s;
+  transition: fill 0.1s linear 0s;
+  cursor: pointer;
+  fill: white; }
+.svg-holder.blur g[id^='C_x3E_'] * {
+  filter: url(#blur); }
