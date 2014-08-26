@@ -1,0 +1,3 @@
+web1: 
+  type: static
+  document_root: server

@@ -6,6 +6,7 @@ coffee       = require 'gulp-coffee'
 concat       = require 'gulp-concat'
 connect      = require 'connect'
 declare      = require 'gulp-declare'
+del          = require 'del'
 fs           = require 'fs'
 haml         = require 'gulp-haml'
 handlebars   = require 'gulp-handlebars'
@@ -23,16 +24,17 @@ sass         = require 'gulp-sass'
 usemin       = require 'gulp-usemin'
 uglify       = require 'gulp-uglify'
 watch        = require 'gulp-watch'
-del          = require 'del'
+wrap         = require 'gulp-wrap'
 
 # Paths to source files
 
-hamlStagePath   = './stage/stage.haml'
-hamlPath        = './app/haml/**/*.haml'
-cssPath         = './app/scss/main.scss'
-cssStagePath    = './stage/stage.scss'
-coffeePath      = './app/coffee/**/*.coffee'
-coffeeStagePath = "./stage/**/*.coffee"
+hamlStagePath     = './stage/stage.haml'
+hamlPath          = './app/haml/**/*.haml'
+cssPath           = './app/scss/*.scss'
+cssStagePath      = './stage/stage.scss'
+coffeePath        = './app/coffee/**/*.coffee'
+coffeeStagePath   = "./stage/**/*.coffee"
+imagePath         = "./app/images/*"
 
 
 htmlStage = ->
@@ -42,9 +44,10 @@ htmlStage = ->
 
 html = ->
   gulp.src( hamlPath )
-    .pipe haml() 
+    .pipe haml()
     .pipe handlebars()
-    .pipe declare( namespace:'handlebars', noRedeclare: true )
+    .pipe wrap( 'Handlebars.template(<%= contents %>)' )
+    .pipe declare( namespace:'finfun')
     .pipe concat('handlebars-templates.js') 
     .pipe gulp.dest('./server/js') 
 
@@ -78,6 +81,10 @@ jsStage = ->
     .pipe concat('init.js') 
     # .pipe browserify( insertGlobals : true, debug : !gutil.env.production )
     .pipe gulp.dest('server/stage/js') 
+
+copyImages = ->
+  gulp.src imagePath
+    .pipe gulp.dest('server/images') 
 
 copyBowerLibs = ->
   bower().pipe gulp.dest('./server/bower-libs/')
@@ -126,19 +133,20 @@ launch = ->
 
 # Livereload Server
 watchAndCompileFiles = (cb)->
-  watch { glob:coffeePath      },  -> js().pipe        livereload() 
-  watch { glob:cssPath         },  -> css().pipe       livereload()
-  watch { glob:hamlPath        },  -> html().pipe      livereload() 
-  watch { glob:coffeeStagePath },  -> jsStage().pipe   livereload() 
-  watch { glob:cssStagePath    },  -> cssStage().pipe  livereload()
-  watch { glob:hamlStagePath   },  -> htmlStage().pipe livereload() 
+  watch { glob:coffeePath      },  -> js().pipe         livereload() 
+  watch { glob:cssPath         },  -> css().pipe        livereload()
+  watch { glob:hamlPath        },  -> html().pipe       livereload() 
+  watch { glob:coffeeStagePath },  -> jsStage().pipe    livereload() 
+  watch { glob:cssStagePath    },  -> cssStage().pipe   livereload()
+  watch { glob:hamlStagePath   },  -> htmlStage().pipe  livereload() 
+  watch { glob:imagePath       },  -> copyImages().pipe livereload() 
 
 
 # ----------- BUILD (rel) ----------- #
 
 gulp.task 'rel:clean',        (cb) -> del ['./rel/'], cb
 gulp.task 'bumpVersion',      ()   -> bumpBowerVersion()
-gulp.task 'compileFiles',     (cb) -> js(); jsStage(); css(); cssStage(); htmlStage(); html()
+gulp.task 'compileFiles',     (cb) -> js(); jsStage(); css(); cssStage(); htmlStage(); html(); copyImages()
 gulp.task 'copyBuiltFiles',   ()   -> copyFilesToBuild()
 gulp.task 'rel', ['rel:clean', 'bumpVersion', 'compileFiles', 'copyBuiltFiles'], -> pushViaGit()
 

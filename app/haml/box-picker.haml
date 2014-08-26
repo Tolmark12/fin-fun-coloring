@@ -1,0 +1,7 @@
+.box-picker{class: "{{className}}"}
+  .active-box
+    .image
+  .options
+    {{#each options}}
+      .option{style: "background:url(/images/{{this.thmb}})", data_full:"{{this.full}}", data_thmb:"{{this.thmb}}", default:"{{this.default}}"}
+    {{/each}}

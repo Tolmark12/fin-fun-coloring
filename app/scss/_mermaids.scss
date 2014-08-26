@@ -1,0 +1,9 @@
+.svg-holder{
+  svg *                    { pointer-events:none; }
+  g[id^='C_x3E_'],       
+  g[id^='C_x3E_'] *        { pointer-events:all; @include transition(fill, 0.1s); cursor:pointer; 
+    &:hover                { filter:url(#blur) }
+  }
+
+  &.blur g[id^='C_x3E_'] * { filter:url(#blur) }
+}

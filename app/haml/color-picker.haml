@@ -1,5 +1,15 @@
-%select
-  %option{value:"#F9A577"} orange 
-  %option{value:"#F7F2A2"} yellow
-  %option{value:"#A5D171"} green
-  %option{value:"#4AB5E7"} blue
+.color-picker
+  .picked-color
+  .swatches
+    .swatch-column
+      {{#each left}}
+        .swatch{style: "background:{{this}}"}
+      {{/each}}
+    .swatch-column
+      {{#each mid}}
+        .swatch{style: "background:{{this}}"}
+      {{/each}}
+    .swatch-column
+      {{#each right}}
+        .swatch{style: "background:{{this}}"}
+      {{/each}}

@@ -1,1 +1,1 @@
-mermain = new FinFun()
+mermaid = new FinFun()
