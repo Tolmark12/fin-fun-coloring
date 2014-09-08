@@ -1,0 +1,22 @@
+{
+  "name": "pagoda-speak-meta",
+  "version": "1.0.1",
+  "ignore": [
+    "app",
+    "bower_components",
+    "node_modules",
+    "server",
+    "stage",
+    ".gitignore",
+    "gulpfile.*",
+    "package.json",
+    "**/.*"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "jquery-easing": "*",
+    "handlebars": "~1.3.0"
+  }
+}

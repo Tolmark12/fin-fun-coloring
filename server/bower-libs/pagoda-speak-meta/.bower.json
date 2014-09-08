@@ -1,0 +1,30 @@
+{
+  "name": "pagoda-speak-meta",
+  "ignore": [
+    "app",
+    "bower_components",
+    "node_modules",
+    "server",
+    "stage",
+    ".gitignore",
+    "gulpfile.*",
+    "package.json",
+    "**/.*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "jquery-easing": "*",
+    "handlebars": "~1.3.0"
+  },
+  "_release": "d0ada5f6c9",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d0ada5f6c9e6560fbe23a2e93dea547668269f4b"
+  },
+  "_source": "git@bitbucket.org:pagodabox-js-libs/speak-meta.git",
+  "_target": "*",
+  "_originalSource": "git@bitbucket.org:pagodabox-js-libs/speak-meta.git",
+  "_direct": true
+}

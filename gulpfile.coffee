@@ -1,5 +1,4 @@
 bower        = require 'gulp-bower'
-browserify   = require 'gulp-browserify'
 bump         = require 'gulp-bump'
 clean        = require 'gulp-clean'
 coffee       = require 'gulp-coffee'
@@ -8,33 +7,28 @@ connect      = require 'connect'
 declare      = require 'gulp-declare'
 del          = require 'del'
 fs           = require 'fs'
+git          = require 'gulp-git'
+gulp         = require 'gulp'
+gutil        = require 'gulp-util'
 haml         = require 'gulp-haml'
 handlebars   = require 'gulp-handlebars'
 http         = require 'http'
-gulp         = require 'gulp'
-git          = require 'gulp-git'
-gutil        = require 'gulp-util'
 livereload   = require 'gulp-livereload'
-minifyCSS    = require 'gulp-minify-css'
 open         = require "gulp-open"
-path         = require 'path'
 plumber      = require 'gulp-plumber'
-prettify     = require 'gulp-prettify'
 sass         = require 'gulp-sass'
-usemin       = require 'gulp-usemin'
-uglify       = require 'gulp-uglify'
 watch        = require 'gulp-watch'
 wrap         = require 'gulp-wrap'
 
 # Paths to source files
 
-hamlStagePath     = './stage/stage.haml'
-hamlPath          = './app/haml/**/*.haml'
-cssPath           = './app/scss/*.scss'
-cssStagePath      = './stage/stage.scss'
-coffeePath        = './app/coffee/**/*.coffee'
-coffeeStagePath   = "./stage/**/*.coffee"
-imagePath         = "./app/images/*"
+hamlStagePath     = 'stage/stage.haml'
+hamlPath          = 'app/haml/**/*.haml'
+cssPath           = 'app/scss/*.scss'
+cssStagePath      = 'stage/stage.scss'
+coffeePath        = 'app/coffee/**/*.coffee'
+coffeeStagePath   = "stage/**/*.coffee"
+imagePath         = "app/images/*"
 
 
 htmlStage = ->
@@ -79,7 +73,6 @@ jsStage = ->
     .pipe plumber() 
     .pipe coffee( bare: true ).on('error', gutil.log).on( 'error', gutil.beep )
     .pipe concat('init.js') 
-    # .pipe browserify( insertGlobals : true, debug : !gutil.env.production )
     .pipe gulp.dest('server/stage/js') 
 
 copyImages = ->
@@ -153,8 +146,8 @@ gulp.task 'rel', ['rel:clean', 'bumpVersion', 'compileFiles', 'copyBuiltFiles'],
 
   # ----------- MAIN ----------- #
 
-gulp.task 'clean',                 (cb) -> del ['./server/*',], cb
-gulp.task 'bowerLibs', ['clean'],  (cb) -> copyBowerLibs();
-gulp.task 'server', ['bowerLibs'], ()   ->  watchAndCompileFiles(); server(); launch()
+gulp.task 'clean',                                 (cb) -> del ['./server/*',], cb
+gulp.task 'bowerLibs', ['clean'],                  (cb) -> copyBowerLibs();
+gulp.task 'server', ['bowerLibs', 'compileFiles'], ()   -> watchAndCompileFiles(); server(); launch()
 gulp.task 'default', ['server']
 

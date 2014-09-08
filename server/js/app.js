@@ -250,9 +250,27 @@ MermaidPicker = (function(_super) {
     var options;
     options = [
       {
-        thmb: "crystal-thmb.gif",
-        full: "ColoringCrystal.svg",
+        full: "ColoringDestiny.svg",
+        thmb: "destiny-thmb.png",
         "default": true
+      }, {
+        full: "ColoringAustralia.svg",
+        thmb: "australia-thmb.png"
+      }, {
+        full: "ColoringBrynne.svg",
+        thmb: "brynne-thmb.png"
+      }, {
+        full: "ColoringCrystal.svg",
+        thmb: "crystal-thmb.png"
+      }, {
+        full: "ColoringJia.svg",
+        thmb: "jia-thmb.png"
+      }, {
+        full: "ColoringSelena.svg",
+        thmb: "selena-thmb.png"
+      }, {
+        full: "ColoringWaverlee.svg",
+        thmb: "waverlee-thmb.png"
       }
     ];
     MermaidPicker.__super__.constructor.call(this, "mermaidPicker", options);
