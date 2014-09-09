@@ -30,7 +30,7 @@ class Mermaid
   onShapeClick : (e) ->
     obj = {}
     obj.fill = ColorPicker.currentColor
-    if EffectsPicker.currentFilter?
+    if EffectsPicker.currentFilter != ""
       obj.filter = "url(##{EffectsPicker.currentFilter})"
     else
       obj.filter = ""

@@ -223,7 +223,7 @@ Mermaid = (function() {
     var obj;
     obj = {};
     obj.fill = ColorPicker.currentColor;
-    if (EffectsPicker.currentFilter != null) {
+    if (EffectsPicker.currentFilter !== "") {
       obj.filter = "url(#" + EffectsPicker.currentFilter + ")";
     } else {
       obj.filter = "";
