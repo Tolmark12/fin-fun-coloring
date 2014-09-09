@@ -35,7 +35,7 @@ class Mermaid
     else
       obj.filter = ""
     
-    $("path",$(e.currentTarget)).css obj
+    $("path, polygon",$(e.currentTarget)).css obj
   
   
 Mermaid = Mermaid

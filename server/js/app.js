@@ -228,7 +228,7 @@ Mermaid = (function() {
     } else {
       obj.filter = "";
     }
-    return $("path", $(e.currentTarget)).css(obj);
+    return $("path, polygon", $(e.currentTarget)).css(obj);
   };
 
   return Mermaid;
